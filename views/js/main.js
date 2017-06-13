@@ -18,6 +18,9 @@ cameron *at* udacity *dot* com
 
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
+
+// Here are arrays of all possible pizza ingredients. 
+
 var pizzaIngredients = {};
 pizzaIngredients.meats = [
   "Pepperoni",
@@ -358,6 +361,7 @@ var makeRandomPizza = function() {
   return pizza;
 };
 
+
 // returns a DOM element for each pizza
 var pizzaElementGenerator = function(i) {
   var pizzaContainer,             // contains pizza title, image and list of ingredients
@@ -449,10 +453,25 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+
+  	switch(size) {
+  		case "1":
+  		newwidth = 25;
+  		break;
+  	case "2":
+  		newwidth = 33.3;
+  		break;
+  	case "3":
+  		newwidth = 50;
+  		break;
+  	default:
+  	console.log("bug in seizeSwitcher");
+  	}
+
+  	var pizzaResizer = document.querySelectorAll(".randomPizzaContainer");
+
+    for (var i = 0; i < pizzaResizer.length; i++) {
+      pizzaResizer[i].style.width = newwidth + "%";
     }
   }
 
@@ -524,7 +543,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 25; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
