@@ -526,7 +526,7 @@ function updatePositions() {
   var i;
 
   for(i = 0; i < 5; i++) {
-  	phaseArray.push(Math.sin((phaseTop / 1250) + i));
+  	phaseArray[i] = Math.sin((phaseTop/1250) + i);
   }
 
   for(i = 0; i < items.length; i++) {
