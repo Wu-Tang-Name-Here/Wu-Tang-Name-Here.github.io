@@ -1,10 +1,6 @@
 module.exports = function(grunt) {
 
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-inline');
-
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -25,9 +21,12 @@ module.exports = function(grunt) {
         inline: {
             dist: {
                 src: 'src/index.html',
+                dest: 'dist/index.html'
             }
         }
     });
-
-    grunt.registerTask('default', ['uglify, cssmin, inline']);
+    //grunt.loadNpmTasks('grunt-contrib-uglify');
+    //grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-inline');
+    grunt.registerTask('default','inline');
 };
