@@ -543,16 +543,17 @@ document.addEventListener('DOMContentLoaded', function() {
   var colsWidth = window.innerWidth;
   var rowHeight = window.innerHeight;
   var s = 256;
-  var cols = Math.ceil(colsWidth/s);
+  var cols = 8;
+  colsWidthCalc = Math.ceil(colsWidth/s);
   var rows = Math.ceil(rowHeight/s);
-  var optimalPizzas = rows * cols;
+  var optimalPizzas = rows * colsWidthCalc;
   var movingPizzas = document.getElementById('movingPizzas1');
   for (var i = 0, elem; i < optimalPizzas; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
-    elem.style.width = "73.333px";
+    elem.style.width = "70px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     movingPizzas.appendChild(elem);
